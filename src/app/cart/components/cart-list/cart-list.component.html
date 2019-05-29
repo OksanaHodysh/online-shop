@@ -1,0 +1,18 @@
+<div class="container">
+  <h3>Shopping Cart</h3>
+  <ng-container *ngIf="purchases.length; else noPurchases">
+    <app-cart-item
+        *ngFor="let item of purchases"
+        appPaintBackground="pink"
+        [purchase]="item"
+        (changeQuantity)="onQuantityChange($event)"
+        (removePurchase)="onRemovePurchase($event)">
+    </app-cart-item>
+    <hr>
+    <p>You have <span class="order-details">{{amount}}</span> items in your shopping cart
+      in the total amount of <span class="order-details">{{total}}</span>.</p>
+  </ng-container>
+  <ng-template #noPurchases>
+    <p>There is <span class="order-details">no items</span> in your shopping cart.</p>
+  </ng-template>
+</div>
