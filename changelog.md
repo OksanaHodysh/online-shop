@@ -1,0 +1,1 @@
+- npm run start opens a browser window automatically;
