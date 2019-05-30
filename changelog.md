@@ -26,4 +26,3 @@
 - added appPaintBackground directive to SharedModule;
   
 - used @ViewChild decorator in AppComponent and ngAfterViewInit lifecycle hook;
-

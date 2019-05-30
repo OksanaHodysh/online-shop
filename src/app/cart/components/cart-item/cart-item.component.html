@@ -1,4 +1,7 @@
-<div class="container" *ngIf="purchase">
+<div
+    class="container"
+    *ngIf="purchase"
+    appPaintBackground="pink">
   <p>
     {{purchase.item.name}} - {{purchase.item.price}}
     <button

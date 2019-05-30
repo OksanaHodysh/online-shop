@@ -3,7 +3,6 @@
   <ng-container *ngIf="purchases.length; else noPurchases">
     <app-cart-item
         *ngFor="let item of purchases"
-        appPaintBackground="pink"
         [purchase]="item"
         (changeQuantity)="onQuantityChange($event)"
         (removePurchase)="onRemovePurchase($event)">
