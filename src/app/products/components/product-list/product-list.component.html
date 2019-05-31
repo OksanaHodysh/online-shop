@@ -1,0 +1,8 @@
+<h3>Product List</h3>
+<div class="container">
+  <app-product
+      *ngFor="let item of products"
+      [product]="item"
+      (buyProduct)="onBuyProduct($event)">
+  </app-product>
+</div>

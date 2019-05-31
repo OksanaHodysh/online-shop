@@ -1,0 +1,16 @@
+<div
+    class="container"
+    *ngIf="purchase"
+    appPaintBackground="pink">
+  <p>
+    {{purchase.item.name}} - {{purchase.item.price}}
+    <button
+        [disabled]="purchase.quantity < 2"
+        (click)="onQuantityDecrease()">-
+    </button>
+    {{purchase.quantity}}
+    <button (click)="onQuantityIncrease()">+</button>
+    {{purchase.item.price * purchase.quantity}}
+    <button (click)="onRemoveItem()">Remove</button>
+  </p>
+</div>
