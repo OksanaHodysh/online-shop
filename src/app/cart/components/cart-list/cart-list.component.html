@@ -10,6 +10,7 @@
     <hr>
     <p>You have <span class="order-details">{{amount}}</span> items in your shopping cart
       in the total amount of <span class="order-details">{{total}}</span>.</p>
+    <button (click)="onEmptyShoppingCart()">Empty Shopping Cart</button>
   </ng-container>
   <ng-template #noPurchases>
     <p>There is <span class="order-details">no items</span> in your shopping cart.</p>

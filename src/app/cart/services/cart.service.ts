@@ -41,4 +41,8 @@ export class CartService {
       purchase
     ];
   }
+
+  emptyShoppingCart(): void {
+    this.purchases = [];
+  }
 }
