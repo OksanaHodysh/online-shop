@@ -1,8 +1,11 @@
 <div class="container">
   <h3>Shopping Cart</h3>
   <ng-container *ngIf="purchases.length; else noPurchases">
+    <select [(ngModel)]="selectedField">
+      <option [ngValue]="selectOption" *ngFor="let selectOption of selectOptions">{{selectOption}}</option>
+    </select>
     <app-cart-item
-        *ngFor="let item of purchases"
+        *ngFor="let item of purchases | orderBy: selectedField: true"
         [purchase]="item"
         (changeQuantity)="onQuantityChange($event)"
         (removePurchase)="onRemovePurchase($event)">

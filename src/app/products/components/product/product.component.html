@@ -1,7 +1,7 @@
 <div class="container" *ngIf="product">
   <h4>{{ product.name }}</h4>
   <div class="tags">
-    <div class="category">{{ product.category }}</div>
+    <div class="category">{{ product.category | uppercase }}</div>
     <div [ngClass]="{
       'available': product.isAvailable,
       'unavailable': !product.isAvailable
@@ -10,7 +10,7 @@
     <div class="top-rated" *ngIf="product.isTopRated">&#9733;</div>
   </div>
   <p>{{ product.description }}</p>
-  <div>{{ product.price }}</div>
+  <div>{{ product.price | currency }}</div>
   <div>
     <button
         [disabled]="!product.isAvailable"
@@ -22,7 +22,9 @@
     <li>{{ payment }}</li>
   </ul>
   <hr>
-  <p>The seller of the product is {{ product.seller }}</p>
+  <p>Seller: {{ product.seller }}.</p>
+  <p>Created: {{ product.created | date: 'dd MMM yyyy' }}.</p>
+  <p>Last Modified: {{ product.lastModified | date: 'dd MMM yyyy' }}.</p>
   <button *ngIf="product.feedbacks.length" (click)="toggle()">{{ showFeedbacks ? 'Hide' : 'See' }} Feedbacks</button>
   <div class="feedbacks" *ngIf="showFeedbacks">
     <p *ngFor="let feedback of product.feedbacks">{{ feedback }}</p>
