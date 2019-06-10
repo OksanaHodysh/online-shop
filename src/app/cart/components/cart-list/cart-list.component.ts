@@ -10,9 +10,17 @@ import { Purchase } from '../../models/purchase.model';
 })
 export class CartListComponent implements OnInit {
 
+  selectOptions: Array<string>;
+  selectedField = '';
+
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.selectOptions = [
+      'name',
+      'category',
+      'price'
+    ];
   }
 
   get purchases(): Array<Purchase> {

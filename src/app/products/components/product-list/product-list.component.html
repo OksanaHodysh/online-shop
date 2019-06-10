@@ -1,7 +1,7 @@
 <h3>Product List</h3>
 <div class="container">
   <app-product
-      *ngFor="let item of products"
+      *ngFor="let item of products | async"
       [product]="item"
       (buyProduct)="onBuyProduct($event)">
   </app-product>

@@ -12,6 +12,8 @@
   7. applied structural directives *ngIf and *ngFor;
   8. used an attribute directive ngClass;
   9. realised 2 event handlers onBuyProduct and toggle.
+  10. adjusted getProducts method to return promise and used it with async pipe;
+  11. applied CurrencyPipe, DatePipe and UpperCasePipe to ProductComponent.
 
 - CartModule:
   1. generated 2 components (CartListComponent, CartItemComponent);
@@ -22,9 +24,11 @@
   6. used OnPush change detection strategy for presentational component;
   7. applied structural directives *ngIf and *ngFor;
   8. added event handlers for cart updates;
+  9.applied OrderByPipe to CartListComponent;
 
 - SharedModule:
   1. added PaintBackground and ClickHandler directives.
+  2. implemented OrderByPipe;
   
 - CoreModule:
   1. generated 4 services (ConfigOptions-, Constants-, Generator-, and LocalStorageService);

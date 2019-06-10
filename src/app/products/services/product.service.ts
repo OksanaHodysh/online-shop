@@ -10,6 +10,8 @@ const products = [
     Category.Clothes,
     'Inspired Artist',
     [Payment.MasterCard, Payment.Visa, Payment.PayPal],
+    `${new Date()}`,
+    `${new Date()}`,
     true,
     true,
     ['The skirt looks brilliant.', 'I love the skirt, it is awesome!']
@@ -31,6 +33,8 @@ const products = [
     Category.KitchenUtensils,
     'Cup Collector',
     [Payment.MasterCard, Payment.Visa, Payment.PayPal],
+    `${new Date('06/04/2019')}`,
+    `${new Date('06/05/2019')}`,
     true,
     true,
     ['The cup is nice.', 'The cup is really big. I love it!']
@@ -44,7 +48,7 @@ export class ProductService {
 
   constructor() { }
 
-  getProducts(): Array<Product> {
-    return products;
+  getProducts(): Promise<Array<Product>> {
+    return Promise.resolve(products);
   }
 }
