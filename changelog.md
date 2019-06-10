@@ -24,7 +24,8 @@
   6. used OnPush change detection strategy for presentational component;
   7. applied structural directives *ngIf and *ngFor;
   8. added event handlers for cart updates;
-  9.applied OrderByPipe to CartListComponent;
+  9. applied OrderByPipe to CartListComponent;
+  10. applied CurrencyPipe to CartItemComponent.
 
 - SharedModule:
   1. added PaintBackground and ClickHandler directives.

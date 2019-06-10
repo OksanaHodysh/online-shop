@@ -10,7 +10,7 @@
     </button>
     {{purchase.quantity}}
     <button (click)="onQuantityIncrease()">+</button>
-    {{purchase.item.price * purchase.quantity}}
+    {{purchase.item.price * purchase.quantity | currency}}
     <button (click)="onRemoveItem()">Remove</button>
   </p>
 </div>
