@@ -46,6 +46,11 @@ export class CartListComponent implements OnInit {
     this.cartService.removePurchase(purchase);
   }
 
+  onEmptyShoppingCart(): void {
+    console.log('You have cleared your shopping cart successfully.');
+    this.cartService.emptyShoppingCart();
+  }
+
   onQuantityChange(purchase: Purchase): void {
     console.log('Quantity is going to be changed.');
     this.cartService.updatePurchase(purchase);
