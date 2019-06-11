@@ -23,6 +23,8 @@ export class CartService {
   addPurchase(item: Product): void {
     if (!this.getPurchase(item.id)) {
       console.log('Congratulations! Item was successfully added to your shopping cart.');
+      // Эта операция мутирует данные
+      // Может заменить тоже на НЕмутируемый подход
       this.purchases.push(new Purchase(item));
     } else {
       console.log('The item is already in your shopping cart.');
@@ -31,11 +33,13 @@ export class CartService {
 
   removePurchase(purchase: Purchase) {
     console.log('Item was successfully removed from your shopping cart.');
+    // Эта операция НЕ мутирует данные
     this.purchases = this.purchases.filter((item) => item !== purchase);
   }
 
   updatePurchase(purchase: Purchase): void {
     console.log('Item quantity was updated successfully.');
+    // Эта операция НЕ мутирует данные
     this.purchases = [
       ...this.purchases.filter((item) => item.item.id !== purchase.item.id),
       purchase
@@ -43,6 +47,7 @@ export class CartService {
   }
 
   emptyShoppingCart(): void {
+    // Эта операция НЕ мутирует данные
     this.purchases = [];
   }
 }

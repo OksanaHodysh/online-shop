@@ -9,18 +9,14 @@ import { Purchase } from '../../models/purchase.model';
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit {
-
   selectOptions: Array<string>;
-  selectedField = '';
+  // Что-то задать по умолчанию
+  selectedField = 'name';
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.selectOptions = [
-      'name',
-      'category',
-      'price'
-    ];
+    this.selectOptions = ['name', 'category', 'price'];
   }
 
   get purchases(): Array<Purchase> {
@@ -28,17 +24,23 @@ export class CartListComponent implements OnInit {
   }
 
   get amount(): number {
-    return this.purchases &&
-      this.purchases.reduce((accum, current) => (
-        accum += current.quantity
-      ), 0);
+    // Думаю, что компонент будет чище, если этот код переместить в сервис
+    // и реализовать вызов какого-то метода сервиса, как в гетере выше.
+    // Так же сделать в следующем гетере
+    return (
+      this.purchases &&
+      this.purchases.reduce((accum, current) => (accum += current.quantity), 0)
+    );
   }
 
   get total(): number {
-    return this.purchases &&
-      this.purchases.reduce((accum, current) => (
-        accum += current.quantity * current.item.price
-      ), 0);
+    return (
+      this.purchases &&
+      this.purchases.reduce(
+        (accum, current) => (accum += current.quantity * current.item.price),
+        0
+      )
+    );
   }
 
   onRemovePurchase(purchase: Purchase): void {
